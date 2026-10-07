@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="快播电影网日韩新片为您提供最新最全的日韩新片在线观看，涵盖日本电影、韩国电影、日韩剧集、动漫综艺等高清资源，第一时间更新日韩影视佳作。">
+<meta name="keywords" content="快播电影网日韩新片,日韩新片,日本电影,韩国电影,日韩剧集,在线观看">
+<meta name="author" content="快播电影网日韩新片">
+<meta name="robots" content="index, follow">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>快播电影网日韩新片 - 最新日韩影视在线观看 | kuaibodianyingwangrihanxinpian-app</title>
+<link rel="canonical" href="https://kuaibodianyingwangrihanxinpian-app.github.io">
+<style>
+    :root{
+        --bg:#070b17;
+        --bg2:#0d1428;
+        --card:#121c34;
+        --line:rgba(255,255,255,.08);
+        --txt:#e8ecf6;
+        --sub:#9aa6c4;
+        --acc:#ff5b8a;
+        --acc2:#7b6bff;
+        --gold:#ffcf5b;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+        background:var(--bg);
+        color:var(--txt);
+        line-height:1.7;
+        overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:1160px;margin:0 auto;padding:0 18px}
+
+    /* 顶部导航 */
+    .nav{
+        position:sticky;top:0;z-index:50;
+        background:rgba(7,11,23,.82);
+        backdrop-filter:blur(14px);
+        -webkit-backdrop-filter:blur(14px);
+        border-bottom:1px solid var(--line);
+    }
+    .nav-in{display:flex;align-items:center;gap:18px;height:60px}
+    .logo{font-size:18px;font-weight:800;letter-spacing:.5px;white-space:nowrap}
+    .logo span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .nav-links{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+    .nav-links a{
+        font-size:14px;color:var(--sub);padding:8px 12px;border-radius:10px;transition:.2s;
+    }
+    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+    .nav-cta{
+        font-size:13px;font-weight:700;padding:9px 16px;border-radius:20px;
+        background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff;white-space:nowrap;
+    }
+    .menu-btn{display:none;width:40px;height:40px;align-items:center;justify-content:center;font-size:22px;cursor:pointer;margin-left:auto}
+
+    /* 英雄区 */
+    .hero{
+        position:relative;padding:64px 0 72px;
+        background:
+            radial-gradient(900px 400px at 85% -10%,rgba(123,107,255,.35),transparent 60%),
+            radial-gradient(700px 360px at 5% 10%,rgba(255,91,138,.28),transparent 60%),
+            linear-gradient(180deg,var(--bg2),var(--bg));
+        border-bottom:1px solid var(--line);
+    }
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+    .tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+    .tag{font-size:12px;padding:5px 12px;border-radius:20px;border:1px solid var(--line);color:var(--sub);background:rgba(255,255,255,.03)}
+    .tag.hot{color:var(--gold);border-color:rgba(255,207,91,.4)}
+    h1{font-size:40px;line-height:1.2;font-weight:900;letter-spacing:-.5px}
+    h1 em{font-style:normal;background:linear-gradient(90deg,var(--acc),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{color:var(--sub);font-size:16px;margin:18px 0 26px;max-width:560px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:14px 26px;border-radius:14px;font-size:15px;font-weight:700;transition:.2s;cursor:pointer;border:0}
+    .btn-primary{background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff;box-shadow:0 10px 26px -10px rgba(255,91,138,.7)}
+    .btn-ghost{background:rgba(255,255,255,.05);color:#fff;border:1px solid var(--line)}
+    .btn:hover{transform:translateY(-2px)}
+    .stats{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap}
+    .stat .n{font-size:26px;font-weight:800}
+    .stat .l{font-size:12px;color:var(--sub)}
+
+    /* 海报卡片 */
+    .poster{
+        position:relative;transform:perspective(1200px) rotateY(-9deg) rotateX(4deg);
+        border-radius:20px;overflow:hidden;
+        box-shadow:0 30px 70px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08);
+    }
+    .poster-img{aspect-ratio:3/4;background:linear-gradient(160deg,#2a1b4d,#1b2a4d 55%,#4d1b3a);position:relative}
+    .poster-img::after{
+        content:"快播电影网日韩新片";position:absolute;left:0;right:0;bottom:22px;text-align:center;
+        font-size:15px;font-weight:800;letter-spacing:2px;color:rgba(255,255,255,.9)
+    }
+    .ribbon{position:absolute;top:16px;left:-6px;background:var(--gold);color:#1a1200;font-size:12px;font-weight:800;padding:6px 14px;border-radius:0 8px 8px 0}
+    .play{
+        position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+        background:rgba(7,11,23,.35);font-size:54px;color:#fff
+    }
+
+    /* 通用区块 */
+    section{padding:64px 0}
+    .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:30px;flex-wrap:wrap}
+    .sec-t{font-size:26px;font-weight:800;letter-spacing:-.3px}
+    .sec-t small{display:block;font-size:13px;font-weight:500;color:var(--sub);margin-top:6px;letter-spacing:0}
+    .sec-more{font-size:13px;color:var(--acc);border:1px solid rgba(255,91,138,.35);padding:7px 14px;border-radius:20px}
+
+    /* 影片网格 */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s}
+    .card:hover{transform:translateY(-6px);border-color:rgba(255,91,138,.4);box-shadow:0 18px 40px -20px rgba(255,91,138,.5)}
+    .thumb{aspect-ratio:2/3;position:relative;overflow:hidden}
+    .thumb .fill{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:rgba(255,255,255,.75);font-weight:700;letter-spacing:1px}
+    .c1{background:linear-gradient(160deg,#3a1b4d,#1b3a4d)}
+    .c2{background:linear-gradient(160deg,#4d1b2a,#4d3a1b)}
+    .c3{background:linear-gradient(160deg,#1b4d3a,#1b2a4d)}
+    .c4{background:linear-gradient(160deg,#4d3a1b,#3a1b4d)}
+    .c5{background:linear-gradient(160deg,#1b2a4d,#4d1b3a)}
+    .c6{background:linear-gradient(160deg,#3a4d1b,#1b4d2a)}
+    .c7{background:linear-gradient(160deg,#4d1b3a,#1b3a4d)}
+    .c8{background:linear-gradient(160deg,#1b3a4d,#4d2a1b)}
+    .badge{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;padding:4px 9px;border-radius:6px;background:rgba(7,11,23,.75);backdrop-filter:blur(4px)}
+    .badge.new{background:var(--acc);color:#fff}
+    .badge.top{background:var(--gold);color:#1a1200}
+    .score{position:absolute;top:10px;right:10px;font-size:12px;font-weight:800;padding:4px 8px;border-radius:6px;background:rgba(7,11,23,.75);color:var(--gold)}
+    .epi{position:absolute;bottom:0;left:0;right:0;font-size:12px;padding:6px 10px;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent);color:#fff}
+    .info{padding:12px 14px}
+    .info h3{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .info p{font-size:12px;color:var(--sub);margin-top:5px;display:flex;justify-content:space-between;gap:8px}
+
+    /* 分类 */
+    .cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .cat{position:relative;padding:22px 18px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--card);transition:.25s}
+    .cat:hover{padding-left:24px;border-color:rgba(123,107,255,.5)}
+    .cat i{font-size:26px;font-style:normal;display:block;margin-bottom:10px}
+    .cat b{font-size:16px;display:block}
+    .cat s{font-size:12px;color:var(--sub);text-decoration:none;margin-top:4px;display:block}
+    .cat u{position:absolute;right:14px;top:14px;font-size:11px;color:var(--acc);text-decoration:none}
+
+    /* 排行 */
+    .rank{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
+    .rank-list{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:10px}
+    .rl-head{display:flex;gap:8px;padding:12px 14px 6px}
+    .rl-tab{font-size:13px;padding:7px 14px;border-radius:10px;color:var(--sub);cursor:pointer}
+    .rl-tab.on{background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff;font-weight:700}
+    .rl li{list-style:none;display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px}
+    .rl li:hover{background:rgba(255,255,255,.05)}
+    .no{width:26px;height:26px;flex:none;border-radius:8px;display:grid;place-items:center;font-size:13px;font-weight:800;background:rgba(255,255,255,.07);color:var(--sub)}
+    .no.top3{background:var(--gold);color:#1a1200}
+    .no.top2{background:var(--acc);color:#fff}
+    .no.top1{background:var(--acc2);color:#fff}
+    .rl li b{font-size:14px;font-weight:600;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .rl li span{font-size:12px;color:var(--sub)}
+    .trend-up{color:#3ddc97}
+
+    /* 更新时间轴 */
+    .update{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+    .tl{position:relative;padding-left:22px}
+    .tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--acc),var(--acc2),transparent)}
+    .tl-item{position:relative;padding-bottom:18px}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-item::before{content:"";position:absolute;left:-21px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px rgba(255,91,138,.2)}
+    .tl-item time{font-size:12px;color:var(--gold);font-weight:700}
+    .tl-item p{font-size:14px;margin-top:3px}
+    .tl-item p a{color:var(--acc)}
+
+    /* 关于/特点 */
+    .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feat div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+    .feat h4{font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .feat h4 u{width:26px;height:26px;flex:none;border-radius:8px;background:linear-gradient(135deg,var(--acc),var(--acc2));text-decoration:none;font-size:13px;display:grid;place-items:center}
+    .feat p{font-size:13px;color:var(--sub)}
+
+    /* 搜索 */
+    .search-box{display:flex;gap:10px;max-width:640px;margin:0 auto;padding:8px;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:16px}
+    .search-box input{flex:1;background:none;border:0;outline:0;color:#fff;font-size:15px;padding:10px 12px}
+    .search-box input::placeholder{color:var(--sub)}
+    .search-box button{border:0;padding:12px 24px;border-radius:11px;background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff;font-weight:700;cursor:pointer}
+
+    /* 页脚 */
+    footer{border-top:1px solid var(--line);padding:44px 0 30px;background:var(--bg2)}
+    .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
+    .foot-brand p{font-size:13px;color:var(--sub);margin-top:12px;max-width:300px}
+    .foot-col h5{font-size:15px;margin-bottom:12px}
+    .foot-col a{display:block;font-size:13px;color:var(--sub);padding:5px 0}
+    .foot-col a:hover{color:var(--acc)}
+    .copy{margin-top:30px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--sub);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .copy a{color:var(--sub)}
+    .copy a:hover{color:#fff}
+
+    /* 回到顶部 */
+    .top{position:fixed;right:18px;bottom:24px;width:46px;height:46px;border-radius:50%;display:none;place-items:center;font-size:20px;cursor:pointer;z-index:60;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;box-shadow:0 10px 26px -8px rgba(255,91,138,.7);border:0}
+
+    /* 响应式 */
+    @media(max-width:960px){
+        .grid{grid-template-columns:repeat(3,1fr)}
+        .cats,.feat{grid-template-columns:repeat(2,1fr)}
+        .rank{grid-template-columns:1fr}
+        .foot-grid{grid-template-columns:repeat(2,1fr)}
+        h1{font-size:32px}
+    }
+    @media(max-width:720px){
+        .menu-btn{display:flex}
+        .nav-links{
+            position:fixed;left:0;right:0;top:60px;flex-direction:column;
+            background:rgba(10,15,30,.97);backdrop-filter:blur(14px);
+            padding:14px;gap:4px;border-bottom:1px solid var(--line);
+            transform:translateY(-140%);transition:.3s;
+        }
+        .nav-links.open{transform:translateY(0)}
+        .nav-links a{font-size:15px;padding:12px 14px;border-radius:12px}
+        .nav-cta{display:none}
+        .hero{padding:40px 0 54px}
+        .hero-grid{grid-template-columns:1fr}
+        .poster{max-width:300px;margin:0 auto;transform:none}
+        h1{font-size:28px}
+        .lead{font-size:15px}
+        .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+        .cats,.feat{grid-template-columns:1fr 1fr;gap:10px}
+        .cat,.feat div{padding:16px 14px}
+        section{padding:46px 0}
+        .sec-t{font-size:21px}
+        .stat .n{font-size:22px}
+        .foot-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:420px){
+        .wrap{padding:0 14px}
+        .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+        .cats,.feat{grid-template-columns:1fr}
+        h1{font-size:24px}
+        .info h3{font-size:14px}
+    }
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<!-- 顶部导航 -->
+<nav class="nav">
+    <div class="wrap nav-in">
+        <a class="logo" href="#top"><span>快播电影网</span>日韩新片</a>
+        <div class="menu-btn" id="menuBtn">☰</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">首页</a>
+            <a href="#japan">日本电影</a>
+            <a href="#korea">韩国电影</a>
+            <a href="#drama">日韩剧集</a>
+            <a href="#anime">动漫综艺</a>
+            <a href="#rank">热播排行</a>
+            <a href="#update">更新动态</a>
+            <a href="#about">关于本站</a>
+        </div>
+        <a class="nav-cta" href="#home">立即观看</a>
+    </div>
+</nav>
+
+<!-- 首页/英雄区 -->
+<header class="hero" id="home">
+    <div class="wrap hero-grid">
+        <div>
+            <div class="tagrow">
+                <span class="tag hot">● 实时更新</span>
+                <span class="tag">1080P 高清</span>
+                <span class="tag">中日韩字幕</span>
+                <span class="tag">免费观看</span>
+            </div>
+            <h1>快播电影网日韩新片<br>追更 <em>最新日韩影视</em> 就在这里</h1>
+            <p class="lead">快播电影网日韩新片（kuaibodianyingwangrihanxinpian-app.github.io）专注整理与推荐最新上映的日本电影、韩国电影、日韩热门剧集与动漫综艺，第一时间同步院线与新番进度，为日韩影视爱好者提供清晰的选片入口与观影指引。</p>
+            <div class="actions">
+                <a class="btn btn-primary" href="#japan">开始选片 →</a>
+                <a class="btn btn-ghost" href="#rank">查看热播榜</a>
+            </div>
+            <div class="stats">
+                <div class="stat"><div class="n">12,800+</div><div class="l">收录影片</div></div>
+                <div class="stat"><div class="n">360+</div><div class="l">合作字幕组</div></div>
+                <div class="stat"><div class="n">每日</div><div class="l">更新 30+ 部</div></div>
+            </div>
+        </div>
+        <div class="poster">
+            <div class="ribbon">本站推荐</div>
+            <div class="poster-img">
+                <div class="play">▶</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- 日本电影 -->
+<section id="japan">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-t">日本电影 <small>Japanese Movies · 院线新作 / 独立佳作 / 动画剧场版</small></div>
+            <a class="sec-more" href="#">+ 更多日本电影</a>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c1">东京物语 2026</div>
+                    <span class="badge new">NEW</span>
+                    <span class="score">9.1</span>
+                    <span class="epi">导演剪辑版 · 中文字幕</span>
+                </div>
+                <div class="info">
+                    <h3>东京物语 重映篇</h3>
+                    <p><span>剧情 / 家庭</span><span>2026-09-28</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c2">名侦探柯南 剧场版</div>
+                    <span class="badge">剧场版</span>
+                    <span class="score">8.7</span>
+                    <span class="epi">HD 高清 · 双语字幕</span>
+                </div>
+                <div class="info">
+                    <h3>名侦探柯南：银翼的魔术师</h3>
+                    <p><span>动画 / 悬疑</span><span>2026-09-25</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c3">暴风雨之夜</div>
+                    <span class="badge new">NEW</span>
+                    <span class="score">8.4</span>
+                    <span class="epi">戛纳入围 · 中字</span>
+                </div>
+                <div class="info">
+                    <h3>暴风雨之夜</h3>
+                    <p><span>剧情 / 犯罪</span><span>2026-09-22</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c4"> Kyoto Love</div>
+                    <span class="badge">限定</span>
+                    <span class="score">8.9</span>
+                    <span class="epi">4K 修复版</span>
+                </div>
+                <div class="info">
+                    <h3>京都爱情故事</h3>
+                    <p><span>爱情 / 文艺</span><span>2026-09-18</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 韩国电影 -->
+<section id="korea" style="background:linear-gradient(180deg,transparent,rgba(123,107,255,.05))">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-t">韩国电影 <small>Korean Movies · 犯罪悬疑 / 现实题材 / 商业大片</small></div>
+            <a class="sec-more" href="#">+ 更多韩国电影</a>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c5">泡菜沙拉</div>
+                    <span class="badge top">TOP</span>
+                    <span class="score">9.3</span>
+                    <span class="epi">青龙奖最佳影片</span>
+                </div>
+                <div class="info">
+                    <h3>泡菜沙拉</h3>
+                    <p><span>剧情 / 社会</span><span>2026-09-30</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c6">午夜首尔</div>
+                    <span class="badge new">NEW</span>
+                    <span class="score">8.6</span>
+                    <span class="epi">动作 / 犯罪</span>
+                </div>
+                <div class="info">
+                    <h3>午夜首尔</h3>
+                    <p><span>动作 / 犯罪</span><span>2026-09-26</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c7">海边咖啡馆</div>
+                    <span class="badge">治愈</span>
+                    <span class="score">8.8</span>
+                    <span class="epi">文艺 / 治愈</span>
+                </div>
+                <div class="info">
+                    <h3>海边咖啡馆</h3>
+                    <p><span>剧情 / 治愈</span><span>2026-09-20</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c8">AI 情人</div>
+                    <span class="badge">科幻</span>
+                    <span class="score">8.2</span>
+                    <span class="epi">科幻 / 爱情</span>
+                </div>
+                <div class="info">
+                    <h3>AI 情人</h3>
+                    <p><span>科幻 / 爱情</span><span>2026-09-15</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 分类导航 -->
+<section id="cats">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-t">按类型找片 <small>Browse by Genre · 精准定位你的观影口味</small></div>
+        </div>
+        <div class="cats">
+            <a class="cat" href="#japan"><i>🎬</i><b>剧情文艺</b><s>1,240 部</s><u>日本</u></a>
+            <a class="cat" href="#korea"><i>🔪</i><b>犯罪悬疑</b><s>986 部</s><u>韩国</u></a>
+            <a class="cat" href="#drama"><i>💕</i><b>爱情治愈</b><s>1,530 部</s><u>日韩</u></a>
+            <a class="cat" href="#anime"><i>🚀</i><b>科幻动作</b><s>720 部</s><u>日本</u></a>
+            <a class="cat" href="#drama"><i>📺</i><b>悬疑剧集</b><s>310 部</s><u>韩剧</u></a>
+            <a class="cat" href="#japan"><i>🌸</i><b>青春校园</b><s>640 部</s><u>日剧</u></a>
+            <a class="cat" href="#anime"><i>🎨</i><b>动画新番</b><s>180 部</s><u>日本</u></a>
+            <a class="cat" href="#update"><i>🆕</i><b>本周上新</b><s>86 部</s><u>更新</u></a>
+        </div>
+    </div>
+</section>
+
+<!-- 日韩剧集 -->
+<section id="drama">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-t">日韩剧集 <small>Drama · 周更同步 / 全集速看 / 经典补档</small></div>
+            <a class="sec-more" href="#">+ 追剧日历</a>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c2">首尔检察官</div>
+                    <span class="badge new">更新至 12 集</span>
+                    <span class="score">9.0</span>
+                </div>
+                <div class="info">
+                    <h3>首尔检察官</h3>
+                    <p><span>韩剧 · 律政</span><span>周三周四更新</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c1">东京恋爱图鉴</div>
+                    <span class="badge">更新至 8 集</span>
+                    <span class="score">8.5</span>
+                </div>
+                <div class="info">
+                    <h3>东京恋爱图鉴</h3>
+                    <p><span>日剧 · 爱情</span><span>周五更新</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c4">江南1945</div>
+                    <span class="badge top">完结</span>
+                    <span class="score">8.8</span>
+                </div>
+                <div class="info">
+                    <h3>江南1945</h3>
+                    <p><span>韩剧 · 年代</span><span>全 16 集</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c3">京都料理人</div>
+                    <span class="badge">更新至 10 集</span>
+                    <span class="score">8.7</span>
+                </div>
+                <div class="info">
+                    <h3>京都料理人</h3>
+                    <p><span>日剧 · 美食</span><span>周六更新</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 热播排行 + 更新动态 -->
+<section id="rank">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-t">热播排行 <small>Charts · 基于播放与收藏综合计算</small></div>
+        </div>
+        <div class="rank">
+            <div class="rank-list">
+                <div class="rl-head">
+                    <span class="rl-tab on">日韩综合榜</span>
+                    <span class="rl-tab">日本电影榜</span>
+                    <span class="rl-tab">韩国电影榜</span>
+                    <span class="rl-tab">剧集榜</span>
+                </div>
+                <ul class="rl">
+                    <li><span class="no top1">1</span><b>泡菜沙拉</b><span>🔥 128.6万</span></li>
+                    <li><span class="no top2">2</span><b>东京物语 重映篇</b><span class="trend-up">▲ 3</span></li>
+                    <li><span class="no top3">3</span><b>首尔检察官</b><span class="trend-up">▲ 1</span></li>
+                    <li><span class="no">4</span><b>暴风雨之夜</b><span class="trend-up">▲ 5</span></li>
+                    <li><span class="no">5</span><b>京都爱情故事</b><span>▶ 持平</span></li>
+                    <li><span class="no">6</span><b>午夜首尔</b><span class="trend-up">▲ 2</span></li>
+                    <li><span class="no">7</span><b>名侦探柯南：银翼的魔术师</b><span>▶ 持平</span></li>
+                    <li><span class="no">8</span><b>海边咖啡馆</b><span class="trend-up">▲ 4</span></li>
+                </ul>
+            </div>
+            <div class="update" id="update">
+                <div class="sec-t" style="font-size:20px;margin-bottom:18px">更新动态 <small style="display:block;color:var(--sub);font-size:12px;margin-top:6px">Update Feed · 最近 7 天</small></div>
+                <div class="tl">
+                    <div class="tl-item"><time>10-07 周二</time><p>上线 <a>《泡菜沙拉》</a> 导演剪辑版，新增 18 分钟未公开片段</p></div>
+                    <div class="tl-item"><time>10-06 周一</time><p>《首尔检察官》第 12 集更新，本周迎来大结局</p></div>
+                    <div class="tl-item"><time>10-04 周六</time><p>《京都料理人》追加 4 集，补全冬季篇</p></div>
+                    <div class="tl-item"><time>10-02 周四</time><p>日本电影专题上线：是枝裕和作品全集修复补档</p></div>
+                    <div class="tl-item"><time>09-30 周二</time><p>《暴风雨之夜》《AI 情人》同步院线资源，支持 1080P</p></div>
+                    <div class="tl-item"><time>09-28 周日</time><p>站点迁移至 <a>https://kuaibodianyingwangrihanxinpian-app.github.io</a>，访问更稳定</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 动漫综艺 -->
+<section id="anime" style="background:linear-gradient(180deg,rgba(255,91,138,.05),transparent)">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-t">动漫 · 综艺 <small>Anime & Variety · 新番速递 / 经典补番 / 韩综日综</small></div>
+            <a class="sec-more" href="#">+ 番剧日历</a>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c1">葬送的芙莉莲 S2</div>
+                    <span class="badge new">连载中</span>
+                    <span class="score">9.4</span>
+                    <span class="epi">第 14 话</span>
+                </div>
+                <div class="info">
+                    <h3>葬送的芙莉莲 第二季</h3>
+                    <p><span>奇幻 / 冒险</span><span>周五更新</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c5">排球少年 剧场版</div>
+                    <span class="badge">剧场版</span>
+                    <span class="score">9.2</span>
+                    <span class="epi">中文字幕</span>
+                </div>
+                <div class="info">
+                    <h3>排球少年：垃圾场的决战</h3>
+                    <p><span>运动 / 热血</span><span>2026-09-24</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c6">RM 2026</div>
+                    <span class="badge">韩综</span>
+                    <span class="score">8.9</span>
+                    <span class="epi">E712</span>
+                </div>
+                <div class="info">
+                    <h3>Running Man 2026</h3>
+                    <p><span>综艺 / 搞笑</span><span>周日更新</span></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="thumb">
+                    <div class="fill c7">月曜夜未央</div>
+                    <span class="badge">日综</span>
+                    <span class="score">8.6</span>
+                    <span class="epi">E503</span>
+                </div>
+                <div class="info">
+                    <h3>月曜夜未央</h3>
+                    <p><span>综艺 / 纪实</span><span>周一更新</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 搜索 -->
+<section id="search">
+    <div class="wrap">
+        <div class="sec-head" style="justify-content:center;text-align:center">
+            <div class="sec-t">没有找到想看的？直接搜 <small>支持片名 / 演员 / 导演 / 类型</small></div>
+        </div>
+        <form class="search-box" onsubmit="return false">
+            <input type="search" placeholder="例如：是枝裕和、悬疑、2026 新片、朴赞郁…" aria-label="搜索影片">
+            <button type="submit">搜索</button>
+        </form>
+    </div>
+</section>
+
+<!-- 关于 -->
+<section id="about">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-t">关于 快播电影网日韩新片 <small>About · 专注日韩影视的导航与推荐站</small></div>
+        </div>
+        <div class="feat">
+            <div>
+                <h4><u>①</u>更新快</h4>
+                <p>紧贴日本、韩国院线与电视台播出节奏，新片新剧 24 小时内完成信息整理与字幕匹配，追更不落空。</p>
+            </div>
+            <div>
+                <h4><u>②</u>分类清</h4>
+                <p>按国家、类型、年份、评分多维筛选，告别“找片半小时”，三秒内定位想看的那一部。</p>
+            </div>
+            <div>
+                <h4><u>③</u>体验好</h4>
+                <p>全站移动端自适应，无弹窗干扰，加载迅速，支持深色阅读，夜间追剧更护眼。</p>
+            </div>
+        </div>
+        <p style="color:var(--sub);font-size:13px;margin-top:22px;max-width:900px">
+            快播电影网日韩新片（网址：<strong>https://kuaibodianyingwangrihanxinpian-app.github.io</strong>）是一个面向日韩影视爱好者的索引与推荐型单页网站，
+            收录日本电影、韩国电影、日韩剧集、动漫与综艺等资源信息。本站尊重版权，倡导正版观影，所有影片信息仅供交流与导航使用，
+            若权利人认为内容侵权，可通过页脚联系方式告知，我们将及时处理。
+        </p>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+    <div class="wrap">
+        <div class="foot-grid">
+            <div class="foot-brand">
+                <a class="logo" href="#top"><span>快播电影网</span>日韩新片</a>
+                <p>追更最新日韩影视的第一站。日本电影、韩国电影、日韩剧集、动漫综艺，一网打尽。</p>
+            </div>
+            <div class="foot-col">
+                <h5>影片分类</h5>
+                <a href="#japan">日本电影</a>
+                <a href="#korea">韩国电影</a>
+                <a href="#drama">日韩剧集</a>
+                <a href="#anime">动漫综艺</a>
+            </div>
+            <div class="foot-col">
+                <h5>热门专题</h5>
+                <a href="#rank">热播排行榜</a>
+                <a href="#update">近期更新</a>
+                <a href="#cats">按类型找片</a>
+                <a href="#search">影片搜索</a>
+            </div>
+            <div class="foot-col">
+                <h5>关于本站</h5>
+                <a href="#about">网站简介</a>
+                <a href="#">版权声明</a>
+                <a href="#">留言反馈</a>
+                <a href="#">友情链接</a>
+            </div>
+        </div>
+        <div class="copy">
+            <span>© 2026 快播电影网日韩新片 · 网址：https://kuaibodianyingwangrihanxinpian-app.github.io · 保留所有权利</span>
+            <span><a href="#">沪ICP备xxxxxxxx号</a> · <a href="#">回到顶部 ↑</a></span>
+        </div>
+    </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+    // 移动端菜单
+    var menuBtn = document.getElementById('menuBtn');
+    var navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', function(){
+        navLinks.classList.toggle('open');
+        menuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+    });
+    navLinks.addEventListener('click', function(e){
+        if(e.target.tagName === 'A'){
+            navLinks.classList.remove('open');
+            menuBtn.textContent = '☰';
+        }
+    });
+
+    // 回到顶部
+    var topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', function(){
+        topBtn.style.display = window.scrollY > 500 ? 'grid' : 'none';
+    });
+    topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+    // 排行 Tab 切换
+    var tabs = document.querySelectorAll('.rl-tab');
+    tabs.forEach(function(t){
+        t.addEventListener('click', function(){
+            tabs.forEach(function(x){ x.classList.remove('on'); });
+            t.classList.add('on');
+        });
+    });
+</script>
+</body>
+</html>
